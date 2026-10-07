@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Real Estate | Land Plots, Apartments & Houses in Eldoret</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        happy: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            950: '#052e16',
+                        },
+                        amberGold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(5, 46, 22, 0.92) 0%, rgba(15, 23, 42, 0.88) 100%), 
+                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased">
+
+    <header class="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-happy-600 flex items-center justify-center text-white shadow-lg shadow-happy-600/30">
+                        <i data-lucide="smile" class="w-7 h-7"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-bold tracking-tight text-slate-900 block leading-none font-heading">HAPPY REAL ESTATE</span>
+                        <span class="text-[10px] font-semibold tracking-widest text-happy-600 uppercase">ELDORET · KAPSOYA ROAD</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-700">
+                    <a href="#home" class="hover:text-happy-600 transition-colors">Home</a>
+                    <a href="#properties" class="hover:text-happy-600 transition-colors">Featured Properties</a>
+                    <a href="#calculator" class="hover:text-happy-600 transition-colors">Land & Mortgage Calculator</a>
+                    <a href="#reviews" class="hover:text-happy-600 transition-colors">Reviews</a>
+                    <a href="#sell" class="hover:text-happy-600 transition-colors">List Your Property</a>
+                    <a href="#contact" class="hover:text-happy-600 transition-colors">Contact</a>
+                </nav>
+
+                <!-- Phone CTAs -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <a href="tel:+254743188455" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition">
+                        <i data-lucide="phone" class="w-4 h-4 text-happy-600"></i>
+                        <span>0743 188455</span>
+                    </a>
+                    <a href="https://wa.me/254743188455?text=Hello%20Happy%20Real%20Estate,%20I%20am%20interested%20in%20buying/renting%20property%20in%20Eldoret." target="_blank" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-happy-600 hover:bg-happy-700 text-white text-xs font-bold shadow-md shadow-happy-600/20 transition">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu container -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-4 pb-6 space-y-3">
+            <a href="#home" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold">Home</a>
+            <a href="#properties" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold">Properties</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold">Land & Mortgage Cost Calculator</a>
+            <a href="#reviews" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold">Client Reviews</a>
+            <a href="#sell" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold">List Your Property</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold">Contact & Location</a>
+            <div class="pt-3 border-t border-slate-200 flex flex-col gap-2">
+                <a href="tel:+254743188455" class="w-full text-center py-2.5 rounded-xl bg-slate-100 text-slate-900 font-bold text-sm">
+                    Call: 0743 188455
+                </a>
+                <a href="https://wa.me/254743188455" target="_blank" class="w-full text-center py-2.5 rounded-xl bg-happy-600 text-white font-bold text-sm">
+                    WhatsApp Inquiry
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="home" class="hero-bg relative py-16 lg:py-28 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="max-w-3xl space-y-6">
+                    
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-happy-600/30 border border-happy-500/40 text-happy-100 text-xs font-bold">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-happy-500"></i>
+                        <span>Eldoret's Verified Real Estate Partner</span>
+                        <span class="text-slate-400">|</span>
+                        <span class="text-amberGold-400 font-bold">5.0 ★ Google Rating</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-none font-heading">
+                        Find Prime Land Plots & Dream Homes in <span class="text-happy-500">Eldoret</span>.
+                    </h1>
+
+                    <p class="text-slate-200 text-base sm:text-lg leading-relaxed">
+                        Discover prime residential plots, luxury villas, modern apartments, and commercial real estate across Kapsoya, Elgon View, Annex, and greater Eldoret with ready Title Deeds.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#properties" class="px-6 py-3.5 rounded-xl bg-happy-600 hover:bg-happy-500 text-white font-bold text-sm shadow-lg shadow-happy-600/30 flex items-center gap-2 transition">
+                            <i data-lucide="search" class="w-4 h-4"></i> Browse Listings
+                        </a>
+                        <a href="#sell" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur text-white font-bold text-sm border border-white/20 flex items-center gap-2 transition">
+                            <i data-lucide="plus-circle" class="w-4 h-4 text-happy-500"></i> Sell Your Land or House
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Live Property Search Bar -->
+                <div class="mt-12 glass-card rounded-2xl p-4 sm:p-6 text-slate-900 shadow-2xl border border-slate-100 max-w-5xl">
+                    <form onsubmit="handleHeroSearch(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">Property Type</label>
+                            <select id="searchType" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-happy-600">
+                                <option value="all">All Property Categories</option>
+                                <option value="plot">Residential & Land Plots</option>
+                                <option value="apartment">Modern Apartments</option>
+                                <option value="villa">Villas & Standalone Houses</option>
+                                <option value="commercial">Commercial Space</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">Eldoret Location</label>
+                            <select id="searchLocation" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-happy-600">
+                                <option value="all">All Eldoret Neighborhoods</option>
+                                <option value="Kapsoya">Kapsoya Road / Noble Hotel Area</option>
+                                <option value="Elgon View">Elgon View</option>
+                                <option value="Annex">Annex / Moi University Area</option>
+                                <option value="Moi Girls">Moi Girls - Kapsoya Belt</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">Max Budget (KES)</label>
+                            <select id="searchPrice" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-happy-600">
+                                <option value="0">Any Price Range</option>
+                                <option value="3000000">Under KES 3,000,000</option>
+                                <option value="7000000">Under KES 7,000,000</option>
+                                <option value="15000000">Under KES 15,000,000</option>
+                                <option value="30000000">Under KES 30,000,000</option>
+                            </select>
+                        </div>
+
+                        <div class="flex items-end">
+                            <button type="submit" class="w-full py-2.5 rounded-xl bg-happy-600 hover:bg-happy-700 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-2">
+                                <i data-lucide="filter" class="w-4 h-4"></i> Filter Properties
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="properties" class="py-16 sm:py-24 bg-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 text-happy-600 font-bold text-xs tracking-wider uppercase mb-1">
+                            <i data-lucide="building" class="w-4 h-4"></i> Eldoret Real Estate
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 font-heading">Featured Listings</h2>
+                    </div>
+
+                    <!-- Category Pills -->
+                    <div class="flex flex-wrap gap-2" id="propertyFilters">
+                        <button onclick="filterProperties('all')" class="prop-filter-btn active-pill px-4 py-2 rounded-xl text-xs font-bold bg-happy-600 text-white shadow">All Properties</button>
+                        <button onclick="filterProperties('plot')" class="prop-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-200">Plots & Land</button>
+                        <button onclick="filterProperties('apartment')" class="prop-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-200">Apartments</button>
+                        <button onclick="filterProperties('villa')" class="prop-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-200">Standalone Houses</button>
+                        <button onclick="filterProperties('commercial')" class="prop-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-200">Commercial</button>
+                    </div>
+                </div>
+
+                <div id="propertiesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Javascript populates listings here -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Property Details Modal -->
+        <div id="propModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+            <div class="bg-white max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-200 max-h-[90vh] flex flex-col">
+                <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+                    <h3 id="modalTitle" class="text-lg font-bold text-slate-900 font-heading">Property Details</h3>
+                    <button onclick="closePropModal()" class="p-1 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-200">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                <div id="modalBody" class="p-6 overflow-y-auto space-y-6 text-slate-700 text-sm">
+                    <!-- Dynamic details -->
+                </div>
+            </div>
+        </div>
+
+        <section id="calculator" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-800">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                        
+                        <div class="lg:col-span-5 space-y-4">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-happy-600/20 text-happy-400 text-xs font-bold">
+                                <i data-lucide="calculator" class="w-4 h-4"></i> Financial Planning Tool
+                            </div>
+                            <h2 class="text-3xl font-bold font-heading">Kenyan Land & Mortgage Fee Calculator</h2>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Plan your property acquisition with precision. Estimate your required deposit, Stamp Duty (4% urban / 2% rural), conveyancing legal fees, and monthly mortgage repayments in KES.
+                            </p>
+
+                            <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 space-y-2 text-xs text-slate-300">
+                                <div class="flex items-center gap-2 text-happy-400 font-bold">
+                                    <i data-lucide="info" class="w-4 h-4"></i> Kenyan Statutory Purchase Fee Breakdown
+                                </div>
+                                <p>• <strong>Stamp Duty:</strong> 4% of property value (Urban Municipality e.g., Eldoret Municipality)</p>
+                                <p>• <strong>Legal & Conveyancing:</strong> ~1.5% - 2% standard advocate fee</p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 bg-slate-950 p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 mb-2">Property Value (KES)</label>
+                                    <input type="number" id="calcPrice" value="5000000" step="500000" oninput="calculateMortgage()" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-happy-500 text-sm font-semibold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 mb-2">Deposit (%)</label>
+                                    <input type="number" id="calcDepositPercent" value="20" min="0" max="90" oninput="calculateMortgage()" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-happy-500 text-sm font-semibold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 mb-2">Interest Rate (% p.a.)</label>
+                                    <input type="number" id="calcInterest" value="13.5" step="0.5" oninput="calculateMortgage()" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-happy-500 text-sm font-semibold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-300 mb-2">Tenure (Years)</label>
+                                    <input type="number" id="calcTenure" value="15" min="1" max="30" oninput="calculateMortgage()" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-happy-500 text-sm font-semibold">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-800 text-xs">
+                                <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                                    <span class="text-slate-400 block mb-1">Required Deposit</span>
+                                    <span id="resDeposit" class="text-sm font-bold text-white">KES 1,000,000</span>
+                                </div>
+                                <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                                    <span class="text-slate-400 block mb-1">Stamp Duty (4%)</span>
+                                    <span id="resStamp" class="text-sm font-bold text-amberGold-400">KES 200,000</span>
+                                </div>
+                                <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                                    <span class="text-slate-400 block mb-1">Est. Legal Fees</span>
+                                    <span id="resLegal" class="text-sm font-bold text-slate-200">KES 75,000</span>
+                                </div>
+                                <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                                    <span class="text-slate-400 block mb-1">Est. Monthly</span>
+                                    <span id="resMonthly" class="text-sm font-bold text-happy-400">KES 51,900</span>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-end pt-2">
+                                <button onclick="sendCalculatedInquiry()" class="px-5 py-3 rounded-xl bg-happy-600 hover:bg-happy-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg">
+                                    <i data-lucide="message-circle" class="w-4 h-4"></i> Send Breakdown to Agent via WhatsApp
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="py-20 bg-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
+                    <div>
+                        <div class="flex items-center gap-2 text-happy-600 font-bold text-xs tracking-wider uppercase mb-1">
+                            <i data-lucide="award" class="w-4 h-4"></i> Verified Google Maps Feedback
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 font-heading">What Our Clients Say</h2>
+                    </div>
+
+                    <div class="flex items-center gap-4 bg-white px-6 py-3.5 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="text-3xl font-bold text-slate-900 font-heading">5.0</div>
+                        <div>
+                            <div class="flex text-amberGold-500">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <span class="text-xs text-slate-500 font-medium">Google Maps Reviews</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Featured Review -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4 relative">
+                        <div class="flex text-amberGold-500">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-800 text-base italic leading-relaxed">
+                            "Very helpful 👌"
+                        </p>
+                        
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">Eunice Njeri</h4>
+                                <span class="text-xs text-slate-500">Local Reviewer</span>
+                            </div>
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 font-semibold">Verified Google Review</span>
+                        </div>
+
+                        <!-- Owner Response Box -->
+                        <div class="mt-4 p-4 rounded-xl bg-happy-50 border border-happy-200 space-y-1.5 text-xs text-slate-700">
+                            <div class="flex items-center gap-2 font-bold text-happy-800">
+                                <i data-lucide="corner-down-right" class="w-4 h-4"></i> Response from Happy Real Estate
+                            </div>
+                            <p class="italic text-slate-600">
+                                "Thank you so much for your kind review. We hope to continue creating a positive impact in the Real Estate industry."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Additional Social Proof Card -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex text-amberGold-500">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <p class="text-slate-800 text-base italic leading-relaxed">
+                                "The team guided us step-by-step through search, land search verification at the Ministry of Lands, and title deed transfer in Eldoret."
+                            </p>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-900">David & Family</h4>
+                                <span class="text-xs text-slate-500">Kapsoya Plot Buyer</span>
+                            </div>
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-happy-100 text-happy-800 font-semibold">Land Buyer</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="sell" class="py-20 bg-slate-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-happy-600/20 text-happy-400 text-xs font-bold">
+                            <i data-lucide="home" class="w-4 h-4"></i> For Property Owners & Landlords
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading">Sell or Lease Your Property in Eldoret With Us</h2>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Own land, a house, or commercial space in Kapsoya, Annex, Elgon View, or nearby areas? Partner with Happy Real Estate for rapid buyer matching and professional property management.
+                        </p>
+
+                        <div class="space-y-3 text-xs">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-happy-600/20 text-happy-400 flex items-center justify-center font-bold">1</div>
+                                <span>Free Property Inspection & Market Valuation</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-happy-600/20 text-happy-400 flex items-center justify-center font-bold">2</div>
+                                <span>Targeted Buyer Exposure Across Western Kenya</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-happy-600/20 text-happy-400 flex items-center justify-center font-bold">3</div>
+                                <span>Seamless Legal Conveyancing & Title Transfers</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 bg-white text-slate-900 p-6 sm:p-8 rounded-2xl shadow-2xl">
+                        <h3 class="text-xl font-bold text-slate-900 font-heading mb-4">Submit Property Details</h3>
+                        
+                        <form id="sellerForm" onsubmit="handleSellerSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Your Full Name *</label>
+                                    <input type="text" required id="ownerName" placeholder="e.g. Jane Kiprop" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-happy-600 outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
+                                    <input type="tel" required id="ownerPhone" placeholder="07XX XXX XXX" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-happy-600 outline-none">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Property Type</label>
+                                    <select id="ownerPropType" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-happy-600 outline-none">
+                                        <option value="Land Plot / Quarter Acre">Land Plot / Quarter Acre</option>
+                                        <option value="50x100 Plot">50x100 Residential Plot</option>
+                                        <option value="Residential House / Villa">Residential House / Villa</option>
+                                        <option value="Apartment Building / Units">Apartment Building / Units</option>
+                                        <option value="Commercial Space / Godown">Commercial Space / Godown</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Property Location in Eldoret</label>
+                                    <input type="text" id="ownerLocation" placeholder="e.g. Kapsoya near Moi Girls" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-happy-600 outline-none">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Asking Price (KES)</label>
+                                    <input type="text" id="ownerAskingPrice" placeholder="e.g. 4,500,000" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-happy-600 outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Title Deed Status</label>
+                                    <select id="ownerTitleStatus" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-happy-600 outline-none">
+                                        <option value="Ready Freehold Title">Ready Freehold Title</option>
+                                        <option value="Leasehold Title">Leasehold Title</option>
+                                        <option value="Sub-division In Progress">Sub-division In Progress</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Additional Details / Features</label>
+                                <textarea id="ownerDetails" rows="3" placeholder="Describe access roads, water/electricity connections, perimeter wall, etc." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-happy-600 outline-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 rounded-xl bg-happy-600 hover:bg-happy-700 text-white font-bold text-xs shadow-lg transition flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-4 h-4"></i> Submit Property via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <div class="lg:col-span-5 space-y-6">
+                        <div>
+                            <span class="text-xs font-bold text-happy-600 uppercase tracking-widest">Office & Location</span>
+                            <h2 class="text-3xl font-bold text-slate-900 font-heading mt-1">Visit Happy Real Estate</h2>
+                        </div>
+
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Our office is conveniently located along the Eldoret-Moi Girls-Kapsoya Road. Drop in during working hours or reach out via call or WhatsApp.
+                        </p>
+
+                        <div class="space-y-3 text-xs">
+                            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200 shadow-sm">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-happy-600 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-slate-900 block text-sm">Office Address</strong>
+                                    <span class="text-slate-600">Eldoret-Moi Girls-Kapsoya Road, Eldoret, Kenya</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200 shadow-sm">
+                                <i data-lucide="clock" class="w-5 h-5 text-happy-600 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-slate-900 block text-sm">Working Hours</strong>
+                                    <span class="text-slate-600">Mon - Sat: Opens 9:00 AM · Sunday: By Appointment</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200 shadow-sm">
+                                <i data-lucide="navigation" class="w-5 h-5 text-happy-600 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-slate-900 block text-sm">Google Maps Plus Code</strong>
+                                    <span class="font-mono text-happy-700 font-bold">G78R+J7 Eldoret</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200 shadow-sm">
+                                <i data-lucide="phone" class="w-5 h-5 text-happy-600 shrink-0 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-slate-900 block text-sm">Direct Phone Call</strong>
+                                    <a href="tel:+254743188455" class="text-happy-600 font-bold hover:underline text-sm">0743 188455</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="https://maps.google.com/?q=G78R%2BJ7+Eldoret" target="_blank" class="w-full py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+                                <i data-lucide="external-link" class="w-4 h-4 text-happy-500"></i> Open in Google Maps
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7">
+                        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 p-3 shadow-lg">
+                            <div class="w-full h-96 rounded-xl bg-slate-900 relative flex items-center justify-center overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1524813686514-a57563d77965?auto=format&fit=crop&w=1200&q=80" alt="Eldoret City Map" class="w-full h-full object-cover opacity-40">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                                
+                                <div class="absolute text-center p-6 glass-dark rounded-2xl border border-happy-500/30 max-w-sm text-white">
+                                    <div class="w-10 h-10 rounded-full bg-happy-600 text-white flex items-center justify-center mx-auto mb-3 shadow-lg">
+                                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                    </div>
+                                    <h4 class="text-base font-bold font-heading">Happy Real Estate</h4>
+                                    <p class="text-xs text-slate-300 mt-1">Eldoret-Moi Girls-Kapsoya Road</p>
+                                    <p class="text-[11px] text-happy-400 font-mono mt-2">Plus Code: G78R+J7 Eldoret</p>
+                                    <a href="https://wa.me/254743188455?text=Hi%20Happy%20Real%20Estate,%20please%20send%20me%20your%20office%20location%20pin." target="_blank" class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-happy-600 text-white text-xs font-bold shadow">
+                                        <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Get Directions on WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-950 text-slate-400 text-xs py-10 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-happy-600 flex items-center justify-center text-white font-bold">
+                    <i data-lucide="smile" class="w-4 h-4"></i>
+                </div>
+                <div>
+                    <span class="text-sm font-bold text-white font-heading block leading-none">HAPPY REAL ESTATE</span>
+                    <span class="text-[10px] text-slate-500">Eldoret-Moi Girls-Kapsoya, Eldoret</span>
+                </div>
+            </div>
+
+            <p>&copy; <span id="year"></span> Happy Real Estate Agency LTD. All rights reserved.</p>
+
+            <div class="flex items-center gap-4">
+                <a href="tel:+254743188455" class="hover:text-happy-400 transition">0743 188455</a>
+                <span>•</span>
+                <a href="https://wa.me/254743188455" target="_blank" class="hover:text-happy-400 transition">WhatsApp Inquiry</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const propertyDatabase = [
+            {
+                id: 1,
+                title: "Prime 1/8th Acre Residential Plot",
+                category: "plot",
+                location: "Kapsoya",
+                price: 2800000,
+                priceDisplay: "KES 2,800,000",
+                specs: ["Ready Freehold Title", "Water & Electricity On Site", "Tarmac Proximity 200m"],
+                image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80",
+                description: "Rectangular, well-drained 50x100 plot located in Kapsoya near Moi Girls. Ideal for a family home or multi-unit residential development."
+            },
+            {
+                id: 2,
+                title: "Luxury 4-Bedroom Villa",
+                category: "villa",
+                location: "Elgon View",
+                price: 24500000,
+                priceDisplay: "KES 24,500,000",
+                specs: ["All Ensuite", "0.5 Acre Compound", "Perimeter Wall & Gate", "DSQ Included"],
+                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
+                description: "Executive standalone villa in serene Elgon View featuring high-end interior finishes, mature garden, solar water heating, and ample parking."
+            },
+            {
+                id: 3,
+                title: "Modern 2-Bedroom Apartment",
+                category: "apartment",
+                location: "Annex",
+                price: 5200000,
+                priceDisplay: "KES 5,200,000",
+                specs: ["Master Ensuite", "Borehole Water", "High Rental Yield", "CCTV Security"],
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80",
+                description: "High-demand investment apartment near Annex and Moi University Annex Campus. Perfect for rental income generation or modern urban living."
+            },
+            {
+                id: 4,
+                title: "Quarter Acre Commercial Plot",
+                category: "commercial",
+                location: "Moi Girls",
+                price: 9800000,
+                priceDisplay: "KES 9,800,000",
+                specs: ["Main Road Frontage", "High Footfall Zone", "Commercial Title Deed"],
+                image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+                description: "Strategic commercial land plot fronting the Kapsoya road belt. Suitable for a commercial complex, hardware, or office blocks."
+            },
+            {
+                id: 5,
+                title: "3-Bedroom Master Ensuite Bungalow",
+                category: "villa",
+                location: "Kapsoya",
+                price: 8500000,
+                priceDisplay: "KES 8,500,000",
+                specs: ["Gated Estate", "Own Compound", "Spacious Kitchen", "Ready Title"],
+                image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80",
+                description: "Charming family bungalow in Kapsoya with perimeter wall, cabro driveway, and close proximity to top schools and Noble Hotel."
+            },
+            {
+                id: 6,
+                title: "50x100 Prime Land Plot",
+                category: "plot",
+                location: "Annex",
+                price: 1950000,
+                priceDisplay: "KES 1,950,000",
+                specs: ["Beaconed Plot", "Fast Developing Area", "Electricity Available"],
+                image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80",
+                description: "Affordable 1/8th acre residential land plot in fast-growing Annex neighborhood with peaceful surroundings and good feeder roads."
+            }
+        ];
+
+        window.onload = function() {
+            lucide.createIcons();
+            renderProperties(propertyDatabase);
+            calculateMortgage();
+            document.getElementById('year').innerText = new Date().getFullYear();
+        };
+
+        function renderProperties(items) {
+            const container = document.getElementById('propertiesContainer');
+            container.innerHTML = '';
+
+            if (items.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 bg-white rounded-2xl border border-slate-200">
+                        <i data-lucide="building-2" class="w-10 h-10 text-slate-400 mx-auto mb-3"></i>
+                        <p class="text-slate-700 font-bold">No properties match your filter criteria.</p>
+                        <p class="text-xs text-slate-500 mt-1">Try resetting search filters or call us directly.</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            items.forEach(prop => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between';
+                card.innerHTML = `
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="${prop.image}" alt="${prop.title}" class="w-full h-full object-cover">
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold bg-happy-600 text-white shadow">
+                                ${prop.location}
+                            </div>
+                            <div class="absolute bottom-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-slate-900/90 text-white backdrop-blur">
+                                ${prop.category.toUpperCase()}
+                            </div>
+                        </div>
+                        <div class="p-5 space-y-3">
+                            <h3 class="text-lg font-bold text-slate-900 font-heading">${prop.title}</h3>
+                            <div class="text-xl font-bold text-happy-700 font-heading">${prop.priceDisplay}</div>
+                            <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-100">
+                                ${prop.specs.map(s => `<span class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-semibold">• ${s}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 flex gap-2">
+                        <button onclick="openPropModal(${prop.id})" class="flex-1 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-800 transition">
+                            Property Details
+                        </button>
+                        <a href="https://wa.me/254743188455?text=Hello%20Happy%20Real%20Estate,%20I%20am%20interested%20in%20inquiring%20about:%20${encodeURIComponent(prop.title)}%20(${prop.priceDisplay})" target="_blank" class="p-2.5 rounded-xl bg-happy-600 hover:bg-happy-700 text-white transition">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        function filterProperties(category) {
+            const buttons = document.querySelectorAll('#propertyFilters button');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-happy-600', 'text-white', 'shadow');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+            event.target.classList.remove('bg-white', 'text-slate-700');
+            event.target.classList.add('bg-happy-600', 'text-white', 'shadow');
+
+            if (category === 'all') {
+                renderProperties(propertyDatabase);
+            } else {
+                renderProperties(propertyDatabase.filter(p => p.category === category));
+            }
+        }
+
+        function handleHeroSearch(e) {
+            e.preventDefault();
+            const type = document.getElementById('searchType').value;
+            const location = document.getElementById('searchLocation').value;
+            const maxPrice = parseFloat(document.getElementById('searchPrice').value);
+
+            let filtered = propertyDatabase;
+
+            if (type !== 'all') {
+                filtered = filtered.filter(p => p.category === type);
+            }
+            if (location !== 'all') {
+                filtered = filtered.filter(p => p.location.toLowerCase().includes(location.toLowerCase()));
+            }
+            if (maxPrice > 0) {
+                filtered = filtered.filter(p => p.price <= maxPrice);
+            }
+
+            renderProperties(filtered);
+            document.getElementById('properties').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openPropModal(id) {
+            const prop = propertyDatabase.find(p => p.id === id);
+            if (!prop) return;
+
+            document.getElementById('modalTitle').innerText = prop.title;
+            const body = document.getElementById('modalBody');
+            body.innerHTML = `
+                <img src="${prop.image}" class="w-full h-56 object-cover rounded-xl border border-slate-200">
+                <div class="flex justify-between items-center">
+                    <span class="text-2xl font-bold text-happy-700 font-heading">${prop.priceDisplay}</span>
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-happy-100 text-happy-800">${prop.location}, Eldoret</span>
+                </div>
+                <p class="text-slate-700 leading-relaxed text-sm">${prop.description}</p>
+                <div>
+                    <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">Key Highlights</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        ${prop.specs.map(s => `<div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-semibold">✓ ${s}</div>`).join('')}
+                    </div>
+                </div>
+                <div class="pt-4 flex gap-3">
+                    <a href="tel:+254743188455" class="flex-1 py-3 rounded-xl bg-slate-100 text-slate-900 font-bold text-center text-xs">Call 0743 188455</a>
+                    <a href="https://wa.me/254743188455?text=Hello%20Happy%20Real%20Estate,%20I%20would%20like%20to%20schedule%20a%20site%20visit%20for:%20${encodeURIComponent(prop.title)}" target="_blank" class="flex-1 py-3 rounded-xl bg-happy-600 text-white font-bold text-center text-xs shadow-md">Book Site Visit via WhatsApp</a>
+                </div>
+            `;
+            document.getElementById('propModal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closePropModal() {
+            document.getElementById('propModal').classList.add('hidden');
+        }
+
+        function calculateMortgage() {
+            const price = parseFloat(document.getElementById('calcPrice').value) || 0;
+            const depositPercent = parseFloat(document.getElementById('calcDepositPercent').value) || 0;
+            const interestRate = parseFloat(document.getElementById('calcInterest').value) || 0;
+            const years = parseInt(document.getElementById('calcTenure').value) || 1;
+
+            const deposit = price * (depositPercent / 100);
+            const loanPrincipal = price - deposit;
+            const stampDuty = price * 0.04; // 4% for urban municipalities in Kenya
+            const legalFees = Math.max(25000, price * 0.015); // ~1.5% legal fees
+
+            const monthlyInterestRate = (interestRate / 100) / 12;
+            const totalMonths = years * 12;
+
+            let monthlyPayment = 0;
+            if (loanPrincipal > 0 && monthlyInterestRate > 0) {
+                monthlyPayment = (loanPrincipal * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, totalMonths)) / 
+                                 (Math.pow(1 + monthlyInterestRate, totalMonths) - 1);
+            }
+
+            document.getElementById('resDeposit').innerText = 'KES ' + Math.round(deposit).toLocaleString();
+            document.getElementById('resStamp').innerText = 'KES ' + Math.round(stampDuty).toLocaleString();
+            document.getElementById('resLegal').innerText = 'KES ' + Math.round(legalFees).toLocaleString();
+            document.getElementById('resMonthly').innerText = 'KES ' + Math.round(monthlyPayment).toLocaleString();
+        }
+
+        function sendCalculatedInquiry() {
+            const price = document.getElementById('calcPrice').value;
+            const deposit = document.getElementById('resDeposit').innerText;
+            const monthly = document.getElementById('resMonthly').innerText;
+
+            const msg = `Hello Happy Real Estate, I calculated financial estimates for property worth KES ${price}:\n• Deposit: ${deposit}\n• Est. Monthly Repayment: ${monthly}\nI'd like to consult on available properties matching this budget.`;
+            window.open(`https://wa.me/254743188455?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function handleSellerSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('ownerName').value;
+            const phone = document.getElementById('ownerPhone').value;
+            const type = document.getElementById('ownerPropType').value;
+            const location = document.getElementById('ownerLocation').value;
+            const price = document.getElementById('ownerAskingPrice').value;
+            const title = document.getElementById('ownerTitleStatus').value;
+            const details = document.getElementById('ownerDetails').value;
+
+            const text = `Hello Happy Real Estate, I want to list a property:\n• Name: ${name}\n• Phone: ${phone}\n• Property Type: ${type}\n• Location: ${location}\n• Asking Price: KES ${price}\n• Title Deed: ${title}\n• Details: ${details}`;
+            window.open(`https://wa.me/254743188455?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
