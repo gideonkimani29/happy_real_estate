@@ -85,7 +85,6 @@
                 <!-- Desktop Nav -->
                 <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-700">
                     <a href="#home" class="hover:text-happy-600 transition-colors">Home</a>
-                    <a href="#properties" class="hover:text-happy-600 transition-colors">Featured Properties</a>
                     <a href="#calculator" class="hover:text-happy-600 transition-colors">Land & Mortgage Calculator</a>
                     <a href="#reviews" class="hover:text-happy-600 transition-colors">Reviews</a>
                     <a href="#sell" class="hover:text-happy-600 transition-colors">List Your Property</a>
@@ -114,7 +113,6 @@
         <!-- Mobile menu container -->
         <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-4 pb-6 space-y-3">
             <a href="#home" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold">Home</a>
-            <a href="#properties" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold">Properties</a>
             <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold">Land & Mortgage Cost Calculator</a>
             <a href="#reviews" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold">Client Reviews</a>
             <a href="#sell" onclick="toggleMobileMenu()" class="block py-2 text-slate-800 font-semibold">List Your Property</a>
@@ -151,8 +149,8 @@
                     </p>
 
                     <div class="flex flex-wrap gap-4 pt-2">
-                        <a href="#properties" class="px-6 py-3.5 rounded-xl bg-happy-600 hover:bg-happy-500 text-white font-bold text-sm shadow-lg shadow-happy-600/30 flex items-center gap-2 transition">
-                            <i data-lucide="search" class="w-4 h-4"></i> Browse Listings
+                        <a href="#sell" class="px-6 py-3.5 rounded-xl bg-happy-600 hover:bg-happy-500 text-white font-bold text-sm shadow-lg shadow-happy-600/30 flex items-center gap-2 transition">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i> Speak to an Agent
                         </a>
                         <a href="#sell" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur text-white font-bold text-sm border border-white/20 flex items-center gap-2 transition">
                             <i data-lucide="plus-circle" class="w-4 h-4 text-happy-500"></i> Sell Your Land or House
@@ -160,95 +158,8 @@
                     </div>
 
                 </div>
-
-                <!-- Live Property Search Bar -->
-                <div class="mt-12 glass-card rounded-2xl p-4 sm:p-6 text-slate-900 shadow-2xl border border-slate-100 max-w-5xl">
-                    <form onsubmit="handleHeroSearch(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1.5">Property Type</label>
-                            <select id="searchType" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-happy-600">
-                                <option value="all">All Property Categories</option>
-                                <option value="plot">Residential & Land Plots</option>
-                                <option value="apartment">Modern Apartments</option>
-                                <option value="villa">Villas & Standalone Houses</option>
-                                <option value="commercial">Commercial Space</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1.5">Eldoret Location</label>
-                            <select id="searchLocation" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-happy-600">
-                                <option value="all">All Eldoret Neighborhoods</option>
-                                <option value="Kapsoya">Kapsoya Road / Noble Hotel Area</option>
-                                <option value="Elgon View">Elgon View</option>
-                                <option value="Annex">Annex / Moi University Area</option>
-                                <option value="Moi Girls">Moi Girls - Kapsoya Belt</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1.5">Max Budget (KES)</label>
-                            <select id="searchPrice" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-happy-600">
-                                <option value="0">Any Price Range</option>
-                                <option value="3000000">Under KES 3,000,000</option>
-                                <option value="7000000">Under KES 7,000,000</option>
-                                <option value="15000000">Under KES 15,000,000</option>
-                                <option value="30000000">Under KES 30,000,000</option>
-                            </select>
-                        </div>
-
-                        <div class="flex items-end">
-                            <button type="submit" class="w-full py-2.5 rounded-xl bg-happy-600 hover:bg-happy-700 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-2">
-                                <i data-lucide="filter" class="w-4 h-4"></i> Filter Properties
-                            </button>
-                        </div>
-                    </form>
-                </div>
             </div>
         </section>
-
-        <section id="properties" class="py-16 sm:py-24 bg-slate-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-                    <div>
-                        <div class="flex items-center gap-2 text-happy-600 font-bold text-xs tracking-wider uppercase mb-1">
-                            <i data-lucide="building" class="w-4 h-4"></i> Eldoret Real Estate
-                        </div>
-                        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 font-heading">Featured Listings</h2>
-                    </div>
-
-                    <!-- Category Pills -->
-                    <div class="flex flex-wrap gap-2" id="propertyFilters">
-                        <button onclick="filterProperties('all')" class="prop-filter-btn active-pill px-4 py-2 rounded-xl text-xs font-bold bg-happy-600 text-white shadow">All Properties</button>
-                        <button onclick="filterProperties('plot')" class="prop-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-200">Plots & Land</button>
-                        <button onclick="filterProperties('apartment')" class="prop-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-200">Apartments</button>
-                        <button onclick="filterProperties('villa')" class="prop-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-200">Standalone Houses</button>
-                        <button onclick="filterProperties('commercial')" class="prop-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-200">Commercial</button>
-                    </div>
-                </div>
-
-                <div id="propertiesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Javascript populates listings here -->
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Property Details Modal -->
-        <div id="propModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-            <div class="bg-white max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-200 max-h-[90vh] flex flex-col">
-                <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
-                    <h3 id="modalTitle" class="text-lg font-bold text-slate-900 font-heading">Property Details</h3>
-                    <button onclick="closePropModal()" class="p-1 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-200">
-                        <i data-lucide="x" class="w-6 h-6"></i>
-                    </button>
-                </div>
-                <div id="modalBody" class="p-6 overflow-y-auto space-y-6 text-slate-700 text-sm">
-                    <!-- Dynamic details -->
-                </div>
-            </div>
-        </div>
 
         <section id="calculator" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -607,203 +518,11 @@
     </footer>
 
     <script>
-        const propertyDatabase = [
-            {
-                id: 1,
-                title: "Prime 1/8th Acre Residential Plot",
-                category: "plot",
-                location: "Kapsoya",
-                price: 2800000,
-                priceDisplay: "KES 2,800,000",
-                specs: ["Ready Freehold Title", "Water & Electricity On Site", "Tarmac Proximity 200m"],
-                image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80",
-                description: "Rectangular, well-drained 50x100 plot located in Kapsoya near Moi Girls. Ideal for a family home or multi-unit residential development."
-            },
-            {
-                id: 2,
-                title: "Luxury 4-Bedroom Villa",
-                category: "villa",
-                location: "Elgon View",
-                price: 24500000,
-                priceDisplay: "KES 24,500,000",
-                specs: ["All Ensuite", "0.5 Acre Compound", "Perimeter Wall & Gate", "DSQ Included"],
-                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
-                description: "Executive standalone villa in serene Elgon View featuring high-end interior finishes, mature garden, solar water heating, and ample parking."
-            },
-            {
-                id: 3,
-                title: "Modern 2-Bedroom Apartment",
-                category: "apartment",
-                location: "Annex",
-                price: 5200000,
-                priceDisplay: "KES 5,200,000",
-                specs: ["Master Ensuite", "Borehole Water", "High Rental Yield", "CCTV Security"],
-                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80",
-                description: "High-demand investment apartment near Annex and Moi University Annex Campus. Perfect for rental income generation or modern urban living."
-            },
-            {
-                id: 4,
-                title: "Quarter Acre Commercial Plot",
-                category: "commercial",
-                location: "Moi Girls",
-                price: 9800000,
-                priceDisplay: "KES 9,800,000",
-                specs: ["Main Road Frontage", "High Footfall Zone", "Commercial Title Deed"],
-                image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
-                description: "Strategic commercial land plot fronting the Kapsoya road belt. Suitable for a commercial complex, hardware, or office blocks."
-            },
-            {
-                id: 5,
-                title: "3-Bedroom Master Ensuite Bungalow",
-                category: "villa",
-                location: "Kapsoya",
-                price: 8500000,
-                priceDisplay: "KES 8,500,000",
-                specs: ["Gated Estate", "Own Compound", "Spacious Kitchen", "Ready Title"],
-                image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80",
-                description: "Charming family bungalow in Kapsoya with perimeter wall, cabro driveway, and close proximity to top schools and Noble Hotel."
-            },
-            {
-                id: 6,
-                title: "50x100 Prime Land Plot",
-                category: "plot",
-                location: "Annex",
-                price: 1950000,
-                priceDisplay: "KES 1,950,000",
-                specs: ["Beaconed Plot", "Fast Developing Area", "Electricity Available"],
-                image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80",
-                description: "Affordable 1/8th acre residential land plot in fast-growing Annex neighborhood with peaceful surroundings and good feeder roads."
-            }
-        ];
-
         window.onload = function() {
             lucide.createIcons();
-            renderProperties(propertyDatabase);
             calculateMortgage();
             document.getElementById('year').innerText = new Date().getFullYear();
         };
-
-        function renderProperties(items) {
-            const container = document.getElementById('propertiesContainer');
-            container.innerHTML = '';
-
-            if (items.length === 0) {
-                container.innerHTML = `
-                    <div class="col-span-full text-center py-12 bg-white rounded-2xl border border-slate-200">
-                        <i data-lucide="building-2" class="w-10 h-10 text-slate-400 mx-auto mb-3"></i>
-                        <p class="text-slate-700 font-bold">No properties match your filter criteria.</p>
-                        <p class="text-xs text-slate-500 mt-1">Try resetting search filters or call us directly.</p>
-                    </div>
-                `;
-                lucide.createIcons();
-                return;
-            }
-
-            items.forEach(prop => {
-                const card = document.createElement('div');
-                card.className = 'bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between';
-                card.innerHTML = `
-                    <div>
-                        <div class="relative h-52 overflow-hidden">
-                            <img src="${prop.image}" alt="${prop.title}" class="w-full h-full object-cover">
-                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold bg-happy-600 text-white shadow">
-                                ${prop.location}
-                            </div>
-                            <div class="absolute bottom-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-slate-900/90 text-white backdrop-blur">
-                                ${prop.category.toUpperCase()}
-                            </div>
-                        </div>
-                        <div class="p-5 space-y-3">
-                            <h3 class="text-lg font-bold text-slate-900 font-heading">${prop.title}</h3>
-                            <div class="text-xl font-bold text-happy-700 font-heading">${prop.priceDisplay}</div>
-                            <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-100">
-                                ${prop.specs.map(s => `<span class="text-[11px] px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-semibold">• ${s}</span>`).join('')}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-5 pt-0 flex gap-2">
-                        <button onclick="openPropModal(${prop.id})" class="flex-1 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-800 transition">
-                            Property Details
-                        </button>
-                        <a href="https://wa.me/254743188455?text=Hello%20Happy%20Real%20Estate,%20I%20am%20interested%20in%20inquiring%20about:%20${encodeURIComponent(prop.title)}%20(${prop.priceDisplay})" target="_blank" class="p-2.5 rounded-xl bg-happy-600 hover:bg-happy-700 text-white transition">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-            lucide.createIcons();
-        }
-
-        function filterProperties(category) {
-            const buttons = document.querySelectorAll('#propertyFilters button');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-happy-600', 'text-white', 'shadow');
-                btn.classList.add('bg-white', 'text-slate-700');
-            });
-            event.target.classList.remove('bg-white', 'text-slate-700');
-            event.target.classList.add('bg-happy-600', 'text-white', 'shadow');
-
-            if (category === 'all') {
-                renderProperties(propertyDatabase);
-            } else {
-                renderProperties(propertyDatabase.filter(p => p.category === category));
-            }
-        }
-
-        function handleHeroSearch(e) {
-            e.preventDefault();
-            const type = document.getElementById('searchType').value;
-            const location = document.getElementById('searchLocation').value;
-            const maxPrice = parseFloat(document.getElementById('searchPrice').value);
-
-            let filtered = propertyDatabase;
-
-            if (type !== 'all') {
-                filtered = filtered.filter(p => p.category === type);
-            }
-            if (location !== 'all') {
-                filtered = filtered.filter(p => p.location.toLowerCase().includes(location.toLowerCase()));
-            }
-            if (maxPrice > 0) {
-                filtered = filtered.filter(p => p.price <= maxPrice);
-            }
-
-            renderProperties(filtered);
-            document.getElementById('properties').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function openPropModal(id) {
-            const prop = propertyDatabase.find(p => p.id === id);
-            if (!prop) return;
-
-            document.getElementById('modalTitle').innerText = prop.title;
-            const body = document.getElementById('modalBody');
-            body.innerHTML = `
-                <img src="${prop.image}" class="w-full h-56 object-cover rounded-xl border border-slate-200">
-                <div class="flex justify-between items-center">
-                    <span class="text-2xl font-bold text-happy-700 font-heading">${prop.priceDisplay}</span>
-                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-happy-100 text-happy-800">${prop.location}, Eldoret</span>
-                </div>
-                <p class="text-slate-700 leading-relaxed text-sm">${prop.description}</p>
-                <div>
-                    <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">Key Highlights</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                        ${prop.specs.map(s => `<div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 font-semibold">✓ ${s}</div>`).join('')}
-                    </div>
-                </div>
-                <div class="pt-4 flex gap-3">
-                    <a href="tel:+254743188455" class="flex-1 py-3 rounded-xl bg-slate-100 text-slate-900 font-bold text-center text-xs">Call 0743 188455</a>
-                    <a href="https://wa.me/254743188455?text=Hello%20Happy%20Real%20Estate,%20I%20would%20like%20to%20schedule%20a%20site%20visit%20for:%20${encodeURIComponent(prop.title)}" target="_blank" class="flex-1 py-3 rounded-xl bg-happy-600 text-white font-bold text-center text-xs shadow-md">Book Site Visit via WhatsApp</a>
-                </div>
-            `;
-            document.getElementById('propModal').classList.remove('hidden');
-            lucide.createIcons();
-        }
-
-        function closePropModal() {
-            document.getElementById('propModal').classList.add('hidden');
-        }
 
         function calculateMortgage() {
             const price = parseFloat(document.getElementById('calcPrice').value) || 0;
